@@ -63,8 +63,11 @@ apps=(
 echo "installing apps with Cask..."
 brew install --appdir="/Applications" ${apps[@]}
 
-
 brew cleanup
+
+#install howdoi
+#https://github.com/gleitz/howdoi
+pip3 install install howdoi
 
 #"Setting trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 2
@@ -97,15 +100,12 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool true
 
 
-
 git clone https://github.com/powerline/fonts.git
 cd fonts
 sh -c ./install.sh
 cd ../
 
-
-
-
+npm install -g tldr
 
 killall Finder
 
