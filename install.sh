@@ -1,5 +1,4 @@
 
-
 echo "Creating an SSH key for you..."
 ssh-keygen -t rsa
 
@@ -106,6 +105,7 @@ sh -c ./install.sh
 cd ../
 
 npm install -g tldr
+npm install -g how-2
 
 killall Finder
 
