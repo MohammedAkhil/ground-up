@@ -1,2 +1,2 @@
 # ground-up
-An installation script for my machine with all software utilities etc
+An installation script for mac machines with all software utilities etc
