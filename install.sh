@@ -20,6 +20,7 @@ fi
 echo "Updating homebrew..."
 brew update
 
+# Install & configure git related stuff
 echo "Installing Git..."
 brew install git
 
@@ -32,9 +33,14 @@ brew install ${cat packages.txt}
 
 # brew install github/gh/gh
 
-#Install Zsh & Oh My Zsh
+# Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
+
+# Install powerline
+# https://github.com/romkatv/powerlevel10k
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >>~/.zshrc
 
 apps=(
   spotify
@@ -64,14 +70,12 @@ brew install --appdir="/Applications" ${apps[@]}
 
 brew cleanup
 
-#install howdoi
-#https://github.com/gleitz/howdoi
+# https://github.com/gleitz/howdoi
 pip3 install install howdoi
 
 #"Setting trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 2
 defaults write -g com.apple.mouse.scaling 2.5
-
 
 #"Showing all filename extensions in Finder by default"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -85,33 +89,26 @@ defaults write com.apple.finder FXPreferredViewStyle Clmv
 #"Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
 defaults write com.apple.dock tilesize -int 36
 
-
 #"Enabling the Develop menu and the Web Inspector in Safari"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
-#Show Hidden Files in Finder
+# Finder configuration
+
+# Show Hidden Files in Finder
 defaults write com.apple.finder AppleShowAllFiles YES
-
 defaults write com.apple.finder ShowPathbar -bool true
-
 defaults write com.apple.finder ShowStatusBar -bool true
 
-
-git clone https://github.com/powerline/fonts.git
-cd fonts
-sh -c ./install.sh
-cd ../
-
+# https://github.com/tldr-pages/tldr
 npm install -g tldr
+
+# https://github.com/santinic/how2
 npm install -g how-2
+
 npm install -g npx
-
-
 
 killall Finder
 
-
 echo "Done!"
-
