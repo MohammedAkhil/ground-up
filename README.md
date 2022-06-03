@@ -4,3 +4,8 @@ An installation script for a developer mac machine consisting of
 - Command line utilities
 - Developer preferences
 - Better Mac preferences
+
+# Installation
+```bash
+sh install.sh
+```
