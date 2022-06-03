@@ -106,6 +106,9 @@ cd ../
 
 npm install -g tldr
 npm install -g how-2
+npm install -g npx
+
+
 
 killall Finder
 
