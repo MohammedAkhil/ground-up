@@ -60,7 +60,8 @@ apps=(
   visual-studio-code
   tableplus
   robo-3t
-  postman
+  postman,
+  pritunl
 )
 
 # Install apps to /Applications
