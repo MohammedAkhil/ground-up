@@ -29,7 +29,8 @@ echo "Git config"
 git config --global user.name "Akhil Mohammed"
 git config --global user.email akhilmohammed05@gmail.com
 
-brew install ${cat packages.txt}
+echo "installing packages from brew packages file `packages.txt`"
+brew install $( cat packages.txt )
 
 # brew install github/gh/gh
 
