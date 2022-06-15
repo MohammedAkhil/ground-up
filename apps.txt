@@ -1,0 +1,17 @@
+spotify
+google-chrome
+maccy
+iterm2
+brave-browser
+1password
+enpass
+authy
+fig
+hammerspoon
+karabiner-elements
+obsidian 
+notion
+ticktick
+visual-studio-code
+tableplus
+robo-3t

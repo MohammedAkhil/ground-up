@@ -37,37 +37,11 @@ brew install ${cat packages.txt}
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
-# Install powerline
-# https://github.com/romkatv/powerlevel10k
-# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-# echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >>~/.zshrc
-
-apps=(
-  spotify
-  google-chrome
-  maccy
-  iterm2
-  brave-browser
-  1password
-  enpass
-  authy
-  fig
-  hammerspoon
-  karabiner-elements
-  obsidian 
-  notion
-  ticktick
-  visual-studio-code
-  tableplus
-  robo-3t
-  postman,
-  pritunl
-)
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-echo "installing apps with Cask..."
-brew install --appdir="/Applications" ${apps[@]}
+echo "installing apps with Cask... from app.txt"
+brew install --appdir="/Applications" $(cat apps.txt)
 
 brew cleanup
 
