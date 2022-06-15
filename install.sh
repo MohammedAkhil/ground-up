@@ -1,4 +1,4 @@
-
+echo "HELLO WORLD!"
 echo "Creating an SSH key for you..."
 ssh-keygen -t rsa
 
@@ -94,6 +94,40 @@ npm install -g tldr
 npm install -g how-2
 
 npm install -g npx
+
+echo "Do you want to install powerline fonts? (y/n)"
+read fontsInput
+
+if [ "$fontsInput" = "y" ]; then
+  echo "Installing Powerline fonts..."
+
+  # clone
+  git clone https://github.com/powerline/fonts.git --depth=1
+  # install
+  cd fonts
+  sh -c ./install.sh
+  # clean-up a bit
+  cd ..
+  rm -rf fonts
+
+  echo "Installing Powerline fonts...done"
+fi
+
+echo "Do you want to install vpn client gotunl? (y/n)"
+read vpnInput
+
+if [ "$vpnInput" = "y" ]; then
+  echo "Installing vpn client gotunl..."
+  # OPTIONAL for cli vpn client
+  # Using go mod, requires go>=1.13:
+  git clone https://github.com/cghdev/gotunl.git
+  cd gotunl
+  go install
+  cd ../
+  rm -rf gotunl
+  # TO-DO configure gotunl to use 2fa from cli
+  echo "Installing vpn client gotunl...done"
+fi
 
 killall Finder
 
