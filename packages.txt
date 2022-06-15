@@ -17,4 +17,4 @@ pyenv
 pyenv-virtualenv
 python@3.10
 ripgrep
-
+ngrok
