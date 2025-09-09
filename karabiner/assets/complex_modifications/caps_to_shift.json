@@ -1,0 +1,30 @@
+{
+  "title": "Caps to Shift",
+  "url": "https://vonng.com/capslock.json",
+  "rules": [
+    {
+      "description": "change caps to shift during hold or escape if alone",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

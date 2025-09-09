@@ -1,0 +1,30 @@
+{
+  "title": "Right Shift to Slash",
+  "url": "https://vonng.com/capslock.json",
+  "rules": [
+    {
+      "description": "change shift to shift during hold or / if alone",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift"
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "slash"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
