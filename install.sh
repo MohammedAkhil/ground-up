@@ -1,4 +1,21 @@
 echo "HELLO WORLD!"
+
+
+# Macos
+
+# Fastest repeat and shortest delay
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 10
+
+# Ensure key repeat works (disable press-and-hold accent picker)
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Nudge macOS to reload preferences
+killall cfprefsd 2>/dev/null || true
+
+echo "Set: KeyRepeat=1, InitialKeyRepeat=10, ApplePressAndHoldEnabled=false"
+echo "Tip: restart apps (or log out/in) so every app picks it up."
+
 echo "Creating an SSH key for you..."
 ssh-keygen -t rsa
 
@@ -20,29 +37,22 @@ fi
 echo "Updating homebrew..."
 brew update
 
+brew install git wget curl htop tree jq fzf bat ripgrep
+
+
 # Install & configure git related stuff
 echo "Installing Git..."
 brew install git
 
 echo "Git config"
 
-git config --global user.name "Akhil Mohammed"
-git config --global user.email akhilmohammed05@gmail.com
+git config --global user.name "Mohammed Akhil"
+git config --global user.email mohammed.akhil@zoom.us
 
 echo "installing packages from brew packages file `packages.txt`"
 brew install $( cat packages.txt )
 
-# brew install github/gh/gh
-
-
-if test $(which nvm); then
-  # nvm
-  mkdir ~/.nvm
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-fi
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
@@ -57,7 +67,7 @@ brew install --appdir="/Applications" $(cat apps.txt)
 brew cleanup
 
 # https://github.com/gleitz/howdoi
-pip3 install install howdoi
+# pip3 install install howdoi
 
 #"Setting trackpad & mouse speed to a reasonable number"
 defaults write -g com.apple.trackpad.scaling 2
@@ -113,21 +123,7 @@ if [ "$fontsInput" = "y" ]; then
   echo "Installing Powerline fonts...done"
 fi
 
-echo "Do you want to install vpn client gotunl? (y/n)"
-read vpnInput
 
-if [ "$vpnInput" = "y" ]; then
-  echo "Installing vpn client gotunl..."
-  # OPTIONAL for cli vpn client
-  # Using go mod, requires go>=1.13:
-  git clone https://github.com/cghdev/gotunl.git
-  cd gotunl
-  go install
-  cd ../
-  rm -rf gotunl
-  # TO-DO configure gotunl to use 2fa from cli
-  echo "Installing vpn client gotunl...done"
-fi
 
 killall Finder
 
